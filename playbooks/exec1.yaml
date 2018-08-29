@@ -1,0 +1,35 @@
+- name: Exercicio 1
+  hosts: all
+  tasks:
+    - name: instalando o cowsay
+      package: 
+        name: cowsay
+        state: present
+    
+    - name: instalando o vim
+      package:
+        name: vim
+        state: present
+
+    - name: instalando o htop
+      package:
+        name: epel-release
+        state: present
+
+    - name: User devops
+      user: 
+        name: devops
+        shell: '/bin/bas/'
+        password: '$1$RXFJjha5$2.YqItIXhZK4xFF2vo0Yz1'
+
+    - name: User developer
+      user:
+        name: developer
+        shell: '/bin/bash'
+        password: '$1$RXFJjha5$2.YqItIXhZK4xFF2vo0Yz1'
+
+    - name: User feliperampazzo
+      user:
+        name: feliperampazzo
+        shell: '/bin/bash'
+        password: '$1$RXFJjha5$2.YqItIXhZK4xFF2vo0Yz1'

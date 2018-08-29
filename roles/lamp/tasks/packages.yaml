@@ -1,0 +1,18 @@
+
+    - name: Instalando o Apache no Debian
+      package:
+        name: apache2
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Instalando o Apache no RedHat
+      package:
+        name: httpd
+      when: ansible_os_family == "RedHat"
+
+    - name: Instalado PHP + MariaBD
+      package:
+        name:
+         - mariadb-server
+         - php
+

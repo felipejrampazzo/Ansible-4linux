@@ -1,0 +1,7 @@
+
+- name: Aplicando a role LAMP
+  hosts: "{{grupo}}"
+  vars:
+   - grupo: all
+  roles:
+   - lamp

@@ -1,0 +1,10 @@
+
+- name: Download do Pacote do Puppet no Debian
+  get_url:
+   url: https://apt.puppetlabs.com/puppet5-release-xenial.deb
+   dest: /tmp/
+
+  tasks:
+   - name: DPKG
+     shell: "dpkg -i puppet5-release-xenial.deb"
+     register: result

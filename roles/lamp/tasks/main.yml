@@ -1,0 +1,7 @@
+---
+# tasks file for lamp
+- name: instalando pacotes
+  include: packages.yaml
+
+- name: Copiando template
+  include: templates.yaml

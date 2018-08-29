@@ -1,0 +1,11 @@
+
+- name: Instalando pacotes principais
+  package:
+    name:
+     - figlet
+     - vim
+     - joe
+     - sysstat
+     - htop
+     - cowsay
+

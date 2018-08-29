@@ -1,0 +1,31 @@
+
+- name: instalado pacotes e add users
+  hosts: all
+  tasks:
+    - name: instalado pacotes
+      package:
+        name:
+          - vim
+          - htop
+          - cowsay
+          - sl
+        state: present
+
+    - name: add users
+      user:
+        name: "{{item}}"
+        shell: '/bin/bash'
+        password: '$1$RXFJjha5$2.YqItIXhZK4xFF2vo0Yz1'
+      with_items:
+        - devops
+        - developer
+        - felipe
+
+- name: instalando somente o epel-release
+  hosts: "{{hosts}}"
+  vars:
+    - hosts: automation
+  tasks:
+    - name: instalado o epel-release
+      package:
+        name: epel-release
