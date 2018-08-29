@@ -1,0 +1,24 @@
+- name: Instalando o GitLab
+  hosts: devops
+  tasks:
+    - name: Baixando pacotes necessarios
+      package:
+        name:
+         - curl
+         - openssh-server
+         - ca-certificates
+         - postfix
+
+    - name: Baixando o script de instalacao
+      get_url:
+        url: https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
+        dest: /etc/ansible/playbooks
+
+    - name: Executando o script de instalacao
+      shell: bash /etc/ansible/playbooks/script.deb.sh
+
+    - name: Instalando o gitlab-ce
+      package:
+        name: gitlab-ce
+      state: present
+      update_cache: yes
