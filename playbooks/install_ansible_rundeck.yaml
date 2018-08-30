@@ -1,0 +1,24 @@
+- name: Instalando o Rundeck e Ansible
+  hosts: automation
+  tasks:
+    - name: Instalando o Repo e o Java
+      yum:
+        name:
+         - java-1.8.0
+         - https://repo.rundeck.org/latest.rpm
+
+    - name: instalando o rundeck e o ansible
+      package:
+        name: 
+         - rundeck
+         - ansible
+        state: present  
+      
+    - name: Enviando as chaves para o automation
+      copy:
+        src: "{{item.src}}"
+        dest: "{{item.dest}}"
+      with_items:
+       - { src: /etc/keys, dest: /etc/ }
+       - { src: /etc/ansible/hosts, dest: /etc/ansible/ }
+       - { src: /etc/ansible/ansible.cfg, dest: /etc/ansible/ }
