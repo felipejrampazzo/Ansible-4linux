@@ -12,7 +12,7 @@
         name: 
          - rundeck
          - ansible
-        state: present  
+        state: latest  
       
     - name: Enviando as chaves para o automation
       copy:
